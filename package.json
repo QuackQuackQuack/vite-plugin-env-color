@@ -1,0 +1,63 @@
+{
+  "name": "vite-plugin-env-color",
+  "version": "0.0.1",
+  "description": "Create a color file with your environment variables in Vite Js",
+  "keywords": [
+    "env",
+    "environment",
+    "variables",
+    "vite",
+    "vite-plugin",
+    "vitejs",
+    "color"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "tsup": {
+    "entry": ["src/index.ts"],
+    "splitting": false,
+    "sourcemap": true,
+    "dts": true,
+    "clean": true,
+    "format": ["cjs", "esm"]
+  },
+  "scripts": {
+    "test": "vitest",
+    "dev": "npm run build -- --watch",
+    "build": "tsup"
+  },
+  "homepage": "https://github.com/QuackQuackQuack/vite-plugin-env-color",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/QuackQuackQuack/vite-plugin-env-color"
+  },
+  "devDependencies": {
+    "@types/mustache": "^4.2.5",
+    "@types/node": "^22.0.2",
+    "lightningcss": "^1.26.0",
+    "mustache": "^4.2.0",
+    "path": "^0.12.7",
+    "tsup": "^8",
+    "typescript": "^4.6.3",
+    "vite": "^5.3.3",
+    "vitest": "^2.0.5"
+  },
+  "peerDependencies": {
+    "vite": ">= 5.0"
+  },
+  "author": "QuackQuackQuack <hiphoperfeel@gmail.com>",
+  "license": "MIT"
+}

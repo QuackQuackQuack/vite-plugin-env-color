@@ -1,0 +1,9 @@
+export type ColorsType = 
+{{#data}} '{{name}}' {{^last}}|{{/last}}{{/data}};
+export type Colors = Record<ColorsType, string>;
+
+export const colors: Colors = {
+  {{#data}}
+  {{name}}: '{{value}}',
+  {{/data}}
+}

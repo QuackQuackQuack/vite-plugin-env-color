@@ -1,0 +1,11 @@
+html {
+  // color
+  {{#data}}
+  --{{name}}: {{value}};
+  {{/data}}
+
+  // rgb
+  {{#data}}
+  --{{name}}-RGB: {{rgb.r}}, {{rgb.g}}, {{rgb.b}};
+  {{/data}}
+}
