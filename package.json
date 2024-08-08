@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-env-color",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Create a color file with your environment variables in Vite Js",
   "keywords": [
     "env",

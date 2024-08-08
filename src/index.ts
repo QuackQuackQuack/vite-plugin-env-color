@@ -51,18 +51,20 @@ export default function vitePluginEnvColor(props: VitePluginEnvColor = {}): Plug
         }
       });
 
-      makeFiles({
-        data,
-        TS_FILE_NAME,
-        TS_BASE_PATH,
-        CSS_FILE_NAME, 
-        CSS_BASE_PATH,
-        SCSS_FILE_NAME,
-        SCSS_BASE_PATH,
-        IS_BUILD_JS,
-        IS_BUILD_CSS,
-        IS_BUILD_SCSS,
-      });
+      if (data?.length) {
+        makeFiles({
+          data,
+          TS_FILE_NAME,
+          TS_BASE_PATH,
+          CSS_FILE_NAME, 
+          CSS_BASE_PATH,
+          SCSS_FILE_NAME,
+          SCSS_BASE_PATH,
+          IS_BUILD_JS,
+          IS_BUILD_CSS,
+          IS_BUILD_SCSS,
+        });
+      }
     },
   }
 }

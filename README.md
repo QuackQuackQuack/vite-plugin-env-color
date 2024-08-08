@@ -1,14 +1,12 @@
-<h2 align='center'><samp>vite-plugin-env-colors</samp></h2>
+<h2 align='center'><samp>vite-plugin-env-color</samp></h2>
 
 <p align='center'>Create a color file with your environment variables in <samp>Vite.js</samp></p>
 
 <p align='center'>
-  <a href='https://www.npmjs.com/package/vite-plugin-env-colors'>
-    <img src='https://img.shields.io/npm/v/vite-plugin-env-colors?color=222&style=flat-square'>
+  <a href='https://www.npmjs.com/package/vite-plugin-env-color'>
+    <img src='https://img.shields.io/npm/v/vite-plugin-env-color?color=222&style=flat-square'>
   </a>
-  <a href='https://github.com/ElMassimo/vite-plugin-environment/blob/main/LICENSE.txt'>
-    <img src='https://img.shields.io/badge/license-MIT-blue.svg'>
-  </a>
+  <img src='https://img.shields.io/badge/license-MIT-blue.svg'>
 </p>
 
 <br>
