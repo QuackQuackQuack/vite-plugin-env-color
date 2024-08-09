@@ -75,11 +75,11 @@ VitePluginEnvColor({
   // BUILD JS
   IS_BUILD_JS: true,
 
-  // BUILD SCSS
-  IS_BUILD_SCSS: true,
-
   // BUILD CSS
   IS_BUILD_CSS: true,
+
+  // BUILD SCSS
+  IS_BUILD_SCSS: true,
 }),
 ```
 
@@ -88,50 +88,42 @@ VitePluginEnvColor({
 #### ENV
 ```shell
 VITE_COLOR_BLACK=000
-VITE_COLOR_RED=F44336
-VITE_COLOR_BLUE=0B5394
 VITE_COLOR_GRAY=EEE
 VITE_COLOR_WHITE_SMOKE=F5F5F5
 
-VITE_THEME_DARK_RED=000
-VITE_THEME_DARK_BLUE=EEE
-VITE_THEME_DARK_SKY_BLUE=111
+VITE_THEME_DARK_RED=E71717
+VITE_THEME_DARK_SKY_BLUE=2B6FE6
 
-VITE_THEME_LIGHT_RED=333
-VITE_THEME_LIGHT_BLUE=777
-VITE_THEME_LIGHT_SKY_BLUE=EEE
+VITE_THEME_LIGHT_FONT_COLOR=222
+VITE_THEME_LIGHT_SUB_FONT_COLOR=666
 ```
 
 #### Created Ts File 
 ```ts
 // color
-export type ColorType = 'black' |'red' |'blue' |'gray' |'whiteSmoke' ;
+export type ColorType = 'black' |'gray' |'whiteSmoke' ;
 export type Color = Record<ColorType, string>;
 
 // dark theme color
-export type DarkColorType = 'red' |'blue' |'skyBlue' ;
+export type DarkColorType = 'red' |'skyBlue' ;
 export type DarkColor = Record<DarkColorType, string>;
 
 // light theme color
-export type LightColorType = 'red' |'blue' |'skyBlue' ;
+export type LightColorType = 'fontColor' |'subFontColor' ;
 export type LightColor = Record<LightColorType, string>;
 
 export const color: Color = {
   black: '#000',
-  red: '#F44336',
-  blue: '#0B5394',
   gray: '#EEE',
   whiteSmoke: '#F5F5F5',
 }
 export const darkColor: DarkColor = {
-  red: '#000',
-  blue: '#EEE',
-  skyBlue: '#111',
+  red: '#E71717',
+  skyBlue: '#2B6FE6',
 }
 export const lightColor: LightColor = {
-  red: '#333',
-  blue: '#777',
-  skyBlue: '#EEE',
+  fontColor: '#222',
+  subFontColor: '#666',
 }
 ```
 
@@ -140,15 +132,11 @@ export const lightColor: LightColor = {
 html {
   /* color */
   --black: #000;
-  --red: #F44336;
-  --blue: #0B5394;
   --gray: #EEE;
   --whiteSmoke: #F5F5F5;
 
   /* rgb */
   --black-RGB: 0, 0, 0;
-  --red-RGB: 244, 67, 54;
-  --blue-RGB: 11, 83, 148;
   --gray-RGB: 238, 238, 238;
   --whiteSmoke-RGB: 245, 245, 245;
 }
@@ -156,27 +144,23 @@ html {
 /* dark theme */
 html[data-theme=dark] {
   /* color */
-  --red: #000;
-  --blue: #EEE;
-  --skyBlue: #111;
+  --red: #E71717;
+  --skyBlue: #2B6FE6;
 
   /* rgb */
-  --red-RGB: 0, 0, 0;
-  --blue-RGB: 238, 238, 238;
-  --skyBlue-RGB: 17, 17, 17;
+  --red-RGB: 231, 23, 23;
+  --skyBlue-RGB: 43, 111, 230;
 }
 
 /* light theme */
 html[data-theme=light] {
   /* color */
-  --red: #333;
-  --blue: #777;
-  --skyBlue: #EEE;
+  --fontColor: #222;
+  --subFontColor: #666;
 
   /* rgb */
-  --red-RGB: 51, 51, 51;
-  --blue-RGB: 119, 119, 119;
-  --skyBlue-RGB: 238, 238, 238;
+  --fontColor-RGB: 34, 34, 34;
+  --subFontColor-RGB: 102, 102, 102;
 }
 ```
 
@@ -185,15 +169,11 @@ html[data-theme=light] {
 html {
   // color
   --black: #000;
-  --red: #F44336;
-  --blue: #0B5394;
   --gray: #EEE;
   --whiteSmoke: #F5F5F5;
 
   // rgb
   --black-RGB: 0, 0, 0;
-  --red-RGB: 244, 67, 54;
-  --blue-RGB: 11, 83, 148;
   --gray-RGB: 238, 238, 238;
   --whiteSmoke-RGB: 245, 245, 245;
 }
@@ -201,27 +181,23 @@ html {
 // dark theme
 html[data-theme=dark] {
   // color
-  --red: #000;
-  --blue: #EEE;
-  --skyBlue: #111;
+  --red: #E71717;
+  --skyBlue: #2B6FE6;
 
   // rgb
-  --red-RGB: 0, 0, 0;
-  --blue-RGB: 238, 238, 238;
-  --skyBlue-RGB: 17, 17, 17;
+  --red-RGB: 231, 23, 23;
+  --skyBlue-RGB: 43, 111, 230;
 }
 
 // light theme
 html[data-theme=light] {
   // color
-  --red: #333;
-  --blue: #777;
-  --skyBlue: #EEE;
+  --fontColor: #222;
+  --subFontColor: #666;
 
   // rgb
-  --red-RGB: 51, 51, 51;
-  --blue-RGB: 119, 119, 119;
-  --skyBlue-RGB: 238, 238, 238;
+  --fontColor-RGB: 34, 34, 34;
+  --subFontColor-RGB: 102, 102, 102;
 }
 ```
 

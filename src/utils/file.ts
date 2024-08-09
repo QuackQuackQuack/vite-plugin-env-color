@@ -1,7 +1,8 @@
-import fs from 'fs';
+import fs from 'node:fs';
+// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import path from 'path';
 import mustache from 'mustache';
-import { RGB } from './color';
+import type { RGB } from './color';
 
 interface MakeFilesDataItem {
   name: string;

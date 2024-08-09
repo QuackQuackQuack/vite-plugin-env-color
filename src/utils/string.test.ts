@@ -17,6 +17,15 @@ describe('toCamelCase - to make CamelCase', () => {
   test('VITE_JAVASCRIPT', () => {
     expect(snakeToCamelCase('VITE_JAVASCRIPT')).toBe('viteJavascript');
   });
+  test('VITE_JAVASCRIPT_1', () => {
+    expect(snakeToCamelCase('VITE_JAVASCRIPT_1')).toBe('viteJavascript1');
+  });
+  test('VITE_JAVASCRIPT_1_ABC_2', () => {
+    expect(snakeToCamelCase('VITE_JAVASCRIPT_1_ABC_2')).toBe('viteJavascript1Abc2');
+  });
+  test('VITE_JAVASCRIPT_1ABC_2', () => {
+    expect(snakeToCamelCase('VITE_JAVASCRIPT_1ABC_2')).toBe('viteJavascript1abc2');
+  });
 });
 
 
