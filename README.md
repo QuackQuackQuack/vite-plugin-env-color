@@ -13,7 +13,7 @@
 
 
 ## When? 🧐
-Register color with ENV and use it when you want to make it into a Javascript or Css or Sass file.
+Register color with ENV and use it when you want to make it into a Javascript or Css or Scss file.
 
 
 ## Installation 💻
@@ -46,7 +46,13 @@ export default defineConfig({
 ```js
 VitePluginEnvColor({
   // DEFAULT ENV FILTER NAME
-  ENV_FILTER_NAME: 'VITE_COLOR_', 
+  ENV_FILTER_NAME: 'VITE_COLOR',
+  
+  // DEFAULT ENV FILTER THEME NAME
+  ENV_THEME_FILTER_NAME: 'VITE_THEME', 
+
+  // DEFAULT ENV FILTER THEMES 
+  ENV_THEME_COLOR_FILTER_NAMES: ['VITE_THEME_DARK', 'VITE_THEME_LIGHT'],
 
   // DEFAULT SCRIPT FILE NAME
   TS_FILE_NAME: 'color',  
@@ -55,7 +61,7 @@ VitePluginEnvColor({
   TS_BASE_PATH: './src',
 
   // DEFAULT CSS FILE NAME
-  CSS_FILE_NAME = 'color',  
+  CSS_FILE_NAME: 'color',  
 
   // DEFAULT CSS PATH
   CSS_BASE_PATH: './public/css',
@@ -86,39 +92,46 @@ VITE_COLOR_RED=F44336
 VITE_COLOR_BLUE=0B5394
 VITE_COLOR_GRAY=EEE
 VITE_COLOR_WHITE_SMOKE=F5F5F5
+
+VITE_THEME_DARK_RED=000
+VITE_THEME_DARK_BLUE=EEE
+VITE_THEME_DARK_SKY_BLUE=111
+
+VITE_THEME_LIGHT_RED=333
+VITE_THEME_LIGHT_BLUE=777
+VITE_THEME_LIGHT_SKY_BLUE=EEE
 ```
 
 #### Created Ts File 
 ```ts
-export type ColorsType = 'black' | 'red' | 'blue' | 'gray' | 'whiteSmoke';
-export type Colors = Record<ColorsType, string>;
+// color
+export type ColorType = 'black' |'red' |'blue' |'gray' |'whiteSmoke' ;
+export type Color = Record<ColorType, string>;
 
-export const colors: Colors = {
-  black: '#F0F0F9',
+// dark theme color
+export type DarkColorType = 'red' |'blue' |'skyBlue' ;
+export type DarkColor = Record<DarkColorType, string>;
+
+// light theme color
+export type LightColorType = 'red' |'blue' |'skyBlue' ;
+export type LightColor = Record<LightColorType, string>;
+
+export const color: Color = {
+  black: '#000',
   red: '#F44336',
   blue: '#0B5394',
   gray: '#EEE',
   whiteSmoke: '#F5F5F5',
-};
-
-```
-
-#### Created Scss File
-``` scss
-html {
-  // color
-  --black: #F0F0F9;
-  --red: #F44336;
-  --blue: #0B5394;
-  --gray: #EEE;
-  --whiteSmoke: #F5F5F5;
-
-  // rgb
-  --black-RGB: 240, 240, 249;
-  --red-RGB: 244, 67, 54;
-  --blue-RGB: 11, 83, 148;
-  --gray-RGB: 238, 238, 238;
-  --whiteSmoke-RGB: 245, 245, 245;
+}
+export const darkColor: DarkColor = {
+  red: '#000',
+  blue: '#EEE',
+  skyBlue: '#111',
+}
+export const lightColor: LightColor = {
+  red: '#333',
+  blue: '#777',
+  skyBlue: '#EEE',
 }
 ```
 
@@ -126,21 +139,91 @@ html {
 ```css
 html {
   /* color */
-  --black: #F0F0F9;
+  --black: #000;
   --red: #F44336;
   --blue: #0B5394;
   --gray: #EEE;
   --whiteSmoke: #F5F5F5;
 
   /* rgb */
-  --black-RGB: 240, 240, 249;
+  --black-RGB: 0, 0, 0;
   --red-RGB: 244, 67, 54;
   --blue-RGB: 11, 83, 148;
   --gray-RGB: 238, 238, 238;
   --whiteSmoke-RGB: 245, 245, 245;
 }
+
+/* dark theme */
+html[data-theme=dark] {
+  /* color */
+  --red: #000;
+  --blue: #EEE;
+  --skyBlue: #111;
+
+  /* rgb */
+  --red-RGB: 0, 0, 0;
+  --blue-RGB: 238, 238, 238;
+  --skyBlue-RGB: 17, 17, 17;
+}
+
+/* light theme */
+html[data-theme=light] {
+  /* color */
+  --red: #333;
+  --blue: #777;
+  --skyBlue: #EEE;
+
+  /* rgb */
+  --red-RGB: 51, 51, 51;
+  --blue-RGB: 119, 119, 119;
+  --skyBlue-RGB: 238, 238, 238;
+}
 ```
 
+#### Created Scss File
+``` scss
+html {
+  // color
+  --black: #000;
+  --red: #F44336;
+  --blue: #0B5394;
+  --gray: #EEE;
+  --whiteSmoke: #F5F5F5;
+
+  // rgb
+  --black-RGB: 0, 0, 0;
+  --red-RGB: 244, 67, 54;
+  --blue-RGB: 11, 83, 148;
+  --gray-RGB: 238, 238, 238;
+  --whiteSmoke-RGB: 245, 245, 245;
+}
+
+// dark theme
+html[data-theme=dark] {
+  // color
+  --red: #000;
+  --blue: #EEE;
+  --skyBlue: #111;
+
+  // rgb
+  --red-RGB: 0, 0, 0;
+  --blue-RGB: 238, 238, 238;
+  --skyBlue-RGB: 17, 17, 17;
+}
+
+// light theme
+html[data-theme=light] {
+  // color
+  --red: #333;
+  --blue: #777;
+  --skyBlue: #EEE;
+
+  // rgb
+  --red-RGB: 51, 51, 51;
+  --blue-RGB: 119, 119, 119;
+  --skyBlue-RGB: 238, 238, 238;
+}
+```
 
 ## License  📝
 
