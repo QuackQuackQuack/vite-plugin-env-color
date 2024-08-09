@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-env-color",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Create a color file with your environment variables in Vite Js",
   "keywords": [
     "env",
@@ -27,12 +27,17 @@
     }
   },
   "tsup": {
-    "entry": ["src/index.ts"],
+    "entry": [
+      "src/index.ts"
+    ],
     "splitting": false,
     "sourcemap": true,
     "dts": true,
     "clean": true,
-    "format": ["cjs", "esm"]
+    "format": [
+      "cjs",
+      "esm"
+    ]
   },
   "scripts": {
     "test": "vitest",
